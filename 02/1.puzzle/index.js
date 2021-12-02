@@ -1,6 +1,7 @@
 var instructions = process.argv[2];
 var horizontal = 0;
 var depth = 0;
+
 const FORWARD = "forward";
 const UP = "up";
 const DOWN = "down";
