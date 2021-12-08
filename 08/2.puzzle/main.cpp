@@ -109,10 +109,6 @@ private:
         this->E = findUniqueChar(abcdfg.str(), this->segments[8]);
 
         std::stringstream ss;
-        ss << this->A << this->B << this->C << this->E << this->F << this->G;
-        this->segments[0] = ss.str();
-        
-        ss.str("");
         ss << this->A << this->C << this->D << this->E  << this->G;
         this->segments[2] = ss.str();
 
