@@ -125,8 +125,6 @@ private:
         }
     };
 
-
-
     char findUniqueChar(const std::string& str1, const std::string& str2) {
         int charValue = 0;
         for(const auto c : str1) {
