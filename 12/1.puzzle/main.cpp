@@ -95,7 +95,7 @@ bool canVisit(const std::shared_ptr<Cave>& cave, const std::vector<std::string>&
     return true;
 }
 
-void calcRoutes(std::vector<std::vector<std::string>>& routes, const std::shared_ptr<Cave> cave, std::vector<std::string> curRoute) {
+void calcRoutes(std::vector<std::vector<std::string>>& routes, const std::shared_ptr<Cave> cave, std::vector<std::string> curRoute=std::vector<std::string>()) {
 
     curRoute.push_back(cave->getCaveName());
     
@@ -123,7 +123,7 @@ int main(const int argc, const char* argv[]) {
 
     auto startCave = findStart(caves);
     if(startCave) {
-        calcRoutes(routes, startCave, std::vector<std::string> ());
+        calcRoutes(routes, startCave);
     }
 
     std::cout << routes.size() << std::endl;
