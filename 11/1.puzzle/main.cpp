@@ -34,7 +34,7 @@ std::vector<std::vector<Octopus>> getInput(const char* filename) {
     return input;
 }
 
-void octopus_shine(std::vector<std::vector<Octopus>>& octopusies, const size_t row, const size_t col, size_t& flash_count, const bool recursion_flag=false){
+void octopus_shine(std::vector<std::vector<Octopus>>& octopusies, const size_t row, const size_t col, size_t& flash_count){
     size_t maxrow = octopusies.size();
     size_t maxcol = octopusies.at(0).size();
 
@@ -46,14 +46,14 @@ void octopus_shine(std::vector<std::vector<Octopus>>& octopusies, const size_t r
         flash_count++;
         octopusies.at(row).at(col).flashed = true;
         
-        octopus_shine(octopusies, row - 1, col, flash_count, true);
-        octopus_shine(octopusies, row + 1, col, flash_count, true);
-        octopus_shine(octopusies, row, col - 1, flash_count, true);
-        octopus_shine(octopusies, row, col + 1, flash_count, true);
-        octopus_shine(octopusies, row - 1, col + 1, flash_count, true);
-        octopus_shine(octopusies, row - 1, col - 1, flash_count, true);
-        octopus_shine(octopusies, row + 1, col + 1, flash_count, true);
-        octopus_shine(octopusies, row + 1, col - 1, flash_count, true);
+        octopus_shine(octopusies, row - 1, col, flash_count);
+        octopus_shine(octopusies, row + 1, col, flash_count);
+        octopus_shine(octopusies, row, col - 1, flash_count);
+        octopus_shine(octopusies, row, col + 1, flash_count);
+        octopus_shine(octopusies, row - 1, col + 1, flash_count);
+        octopus_shine(octopusies, row - 1, col - 1, flash_count);
+        octopus_shine(octopusies, row + 1, col + 1, flash_count);
+        octopus_shine(octopusies, row + 1, col - 1, flash_count);
 
         octopusies.at(row).at(col).energie = 0;
     }
