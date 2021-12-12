@@ -5,6 +5,7 @@
 #include <string>
 #include <sstream>
 
+
 class Cave {
 public:
     Cave() = delete;
@@ -29,42 +30,6 @@ public:
 private:
     std::string caveName;
     std::vector<std::shared_ptr<Cave>> neighbours;
-};
-
-class Route {
-public:
-    Route() = default;
-    Route(const Route& r) {
-        route = r.getRoute();
-        smallCaveVisitedTwice = false;
-    };
-
-    bool canVisit(const std::shared_ptr<Cave> cave) {
-        if(!cave->isSmallCave()) return true;
-
-        for(const auto& caveName : route) {
-            if(cave->getCaveName() == caveName) {
-                if(!smallCaveVisitedTwice) {
-                    smallCaveVisitedTwice = true;
-                    return true;
-                }
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    void push_back(std::string caveName) {
-        route.push_back(caveName);
-    }
-
-    std::vector<std::string> getRoute() const {
-        return route;
-    }
-private:
-    bool smallCaveVisitedTwice = false;
-    std::vector<std::string> route;
 };
 
 std::shared_ptr<Cave> findOrAddCave(std::vector<std::shared_ptr<Cave>>& caves, std::string caveName) {
@@ -116,7 +81,21 @@ std::shared_ptr<Cave> findStart(std::vector<std::shared_ptr<Cave>> & caves) {
 
     return nullptr;
 }
-void calcRoutes(std::vector<Route>& routes, const std::shared_ptr<Cave> cave, Route curRoute) {
+
+bool canVisit(const std::shared_ptr<Cave>& cave, const std::vector<std::string>& route) {
+    // endlosloop Abfrage
+    if(!cave->isSmallCave()) return true;
+
+    for(const auto& caveName : route) {
+        if(cave->getCaveName() == caveName) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+void calcRoutes(std::vector<std::vector<std::string>>& routes, const std::shared_ptr<Cave> cave, std::vector<std::string> curRoute) {
 
     curRoute.push_back(cave->getCaveName());
     
@@ -126,9 +105,8 @@ void calcRoutes(std::vector<Route>& routes, const std::shared_ptr<Cave> cave, Ro
     }
 
     for(const auto& neighour: cave->getNeighbours()) {
-        if(curRoute.canVisit(neighour)) {
-            if(neighour->getCaveName() == "start") continue;
-            calcRoutes(routes, neighour, Route(curRoute));
+        if(canVisit(neighour, curRoute)) {
+            calcRoutes(routes, neighour, curRoute);
         }
     }
 
@@ -141,11 +119,11 @@ int main(const int argc, const char* argv[]) {
     }
 
     std::vector<std::shared_ptr<Cave>> caves = getInput(argv[1]);
-    std::vector<Route> routes;
+    std::vector<std::vector<std::string>> routes;
 
     auto startCave = findStart(caves);
     if(startCave) {
-        calcRoutes(routes, startCave, Route());
+        calcRoutes(routes, startCave, std::vector<std::string> ());
     }
 
     std::cout << routes.size() << std::endl;
