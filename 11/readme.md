@@ -27,21 +27,24 @@ Finally, any octopus that flashed during this step has its energy level set to 0
 
 Adjacent flashes can cause an octopus to flash on a step even if it begins that step with very little energy. Consider the middle octopus with 1 energy in this situation:
 
-    Before any steps:
+Before any steps:
+
     11111
     19991
     19191
     19991
     11111
 
-    After step 1:
+After step 1:
+
     34543
     40004
     50005
     40004
     34543
 
-    After step 2:
+After step 2:
+
     45654
     51115
     61116
@@ -52,7 +55,8 @@ An octopus is highlighted when it flashed during the given step.
 
 Here is how the larger example above progresses:
 
-    Before any steps:
+Before any steps:
+
     5483143223
     2745854711
     5264556173
@@ -64,7 +68,8 @@ Here is how the larger example above progresses:
     4846848554
     5283751526
 
-    After step 1:
+After step 1:
+
     6594254334
     3856965822
     6375667284
@@ -76,7 +81,8 @@ Here is how the larger example above progresses:
     5957959665
     6394862637
 
-    After step 2:
+After step 2:
+
     8807476555
     5089087054
     8597889608
@@ -88,7 +94,8 @@ Here is how the larger example above progresses:
     9000000876
     8700006848
 
-    After step 3:
+After step 3:
+
     0050900866
     8500800575
     9900000039
@@ -100,7 +107,8 @@ Here is how the larger example above progresses:
     0421125000
     0021119000
 
-    After step 4:
+After step 4:
+
     2263031977
     0923031697
     0032221150
@@ -112,7 +120,8 @@ Here is how the larger example above progresses:
     1532247211
     1132230211
 
-    After step 5:
+After step 5:
+
     4484144000
     2044144000
     2253333493
@@ -124,7 +133,8 @@ Here is how the larger example above progresses:
     2643358322
     2243341322
 
-    After step 6:
+After step 6:
+
     5595255111
     3155255222
     3364444605
@@ -136,7 +146,8 @@ Here is how the larger example above progresses:
     3754469433
     3354452433
 
-    After step 7:
+After step 7:
+
     6707366222
     4377366333
     4475555827
@@ -148,7 +159,8 @@ Here is how the larger example above progresses:
     4865580644
     4465574644
 
-    After step 8:
+After step 8:
+
     7818477333
     5488477444
     5697666949
@@ -160,7 +172,8 @@ Here is how the larger example above progresses:
     8000004755
     6800007755
 
-    After step 9:
+After step 9:
+
     9060000644
     7800000976
     6900000080
@@ -172,7 +185,8 @@ Here is how the larger example above progresses:
     9111128097
     7911119976
 
-    After step 10:
+After step 10:
+
     0481112976
     0031112009
     0041112504
@@ -186,7 +200,8 @@ Here is how the larger example above progresses:
 
 After step 10, there have been a total of 204 flashes. Fast forwarding, here is the same configuration every 10 steps:
 
-    After step 20:
+After step 20:
+
     3936556452
     5686556806
     4496555690
@@ -198,7 +213,8 @@ After step 10, there have been a total of 204 flashes. Fast forwarding, here is 
     6000000364
     4600009543
 
-    After step 30:
+After step 30:
+
     0643334118
     4253334611
     3374333458
@@ -210,7 +226,8 @@ After step 10, there have been a total of 204 flashes. Fast forwarding, here is 
     9444447111
     7944446119
 
-    After step 40:
+After step 40:
+
     6211111981
     0421111119
     0042111115
@@ -222,7 +239,8 @@ After step 10, there have been a total of 204 flashes. Fast forwarding, here is 
     2222222976
     2222222762
 
-    After step 50:
+After step 50:
+
     9655556447
     4865556805
     4486555690
@@ -234,7 +252,8 @@ After step 10, there have been a total of 204 flashes. Fast forwarding, here is 
     6800000633
     5680000538
 
-    After step 60:
+After step 60:
+
     2533334200
     2743334640
     2264333458
@@ -246,7 +265,8 @@ After step 10, there have been a total of 204 flashes. Fast forwarding, here is 
     1175447111
     1115446111
 
-    After step 70:
+After step 70:
+
     8211111164
     0421111166
     0042111114
@@ -258,7 +278,8 @@ After step 10, there have been a total of 204 flashes. Fast forwarding, here is 
     5722223475
     4572222754
 
-    After step 80:
+After step 80:
+
     1755555697
     5965555609
     4486555680
@@ -270,7 +291,8 @@ After step 10, there have been a total of 204 flashes. Fast forwarding, here is 
     0000000800
     0000000000
 
-    After step 90:
+After step 90:
+
     7433333522
     2643333522
     2264333458
@@ -282,7 +304,8 @@ After step 10, there have been a total of 204 flashes. Fast forwarding, here is 
     3387779333
     3333333333
 
-    After step 100:
+After step 100:
+
     0397666866
     0749766918
     0053976933
