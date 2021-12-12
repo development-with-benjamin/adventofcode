@@ -41,7 +41,7 @@ void octopus_shine(std::vector<std::vector<Octopus>>& octopusies, const size_t r
     if(row >= maxrow || col >= maxcol) {
         return;
     }
-    octopusies.at(row).at(col).energie += 1 * recursion_flag && !octopusies.at(row).at(col).flashed;
+    octopusies.at(row).at(col).energie += 1 * !octopusies.at(row).at(col).flashed;
     if(octopusies.at(row).at(col).energie > 9 && !octopusies.at(row).at(col).flashed) {
         flash_count++;
         octopusies.at(row).at(col).flashed = true;

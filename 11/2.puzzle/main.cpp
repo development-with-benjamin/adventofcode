@@ -34,26 +34,26 @@ std::vector<std::vector<Octopus>> getInput(const char* filename) {
     return input;
 }
 
-void octopus_shine(std::vector<std::vector<Octopus>>& octopusies, const size_t row, const size_t col, size_t& flash_count, const bool recursion_flag=false){
+void octopus_shine(std::vector<std::vector<Octopus>>& octopusies, const size_t row, const size_t col, size_t& flash_count){
     size_t maxrow = octopusies.size();
     size_t maxcol = octopusies.at(0).size();
 
     if(row >= maxrow || col >= maxcol) {
         return;
     }
-    octopusies.at(row).at(col).energie += 1 * recursion_flag && !octopusies.at(row).at(col).flashed;
+    octopusies.at(row).at(col).energie += 1 * !octopusies.at(row).at(col).flashed;
     if(octopusies.at(row).at(col).energie > 9 && !octopusies.at(row).at(col).flashed) {
         flash_count++;
         octopusies.at(row).at(col).flashed = true;
         
-        octopus_shine(octopusies, row - 1, col, flash_count, true);
-        octopus_shine(octopusies, row + 1, col, flash_count, true);
-        octopus_shine(octopusies, row, col - 1, flash_count, true);
-        octopus_shine(octopusies, row, col + 1, flash_count, true);
-        octopus_shine(octopusies, row - 1, col + 1, flash_count, true);
-        octopus_shine(octopusies, row - 1, col - 1, flash_count, true);
-        octopus_shine(octopusies, row + 1, col + 1, flash_count, true);
-        octopus_shine(octopusies, row + 1, col - 1, flash_count, true);
+        octopus_shine(octopusies, row - 1, col, flash_count);
+        octopus_shine(octopusies, row + 1, col, flash_count);
+        octopus_shine(octopusies, row, col - 1, flash_count);
+        octopus_shine(octopusies, row, col + 1, flash_count);
+        octopus_shine(octopusies, row - 1, col + 1, flash_count);
+        octopus_shine(octopusies, row - 1, col - 1, flash_count);
+        octopus_shine(octopusies, row + 1, col + 1, flash_count);
+        octopus_shine(octopusies, row + 1, col - 1, flash_count);
 
         octopusies.at(row).at(col).energie = 0;
     }

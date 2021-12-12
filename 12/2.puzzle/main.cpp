@@ -140,7 +140,7 @@ std::shared_ptr<Cave> findStart(std::vector<std::shared_ptr<Cave>> & caves) {
 
     return nullptr;
 }
-void calcRoutes(std::vector<Route>& routes, const std::shared_ptr<Cave> cave, Route curRoute) {
+void calcRoutes(std::vector<Route>& routes, const std::shared_ptr<Cave> cave, Route curRoute=Route()) {
 
     curRoute.push_back(cave->getCaveName());
     
@@ -168,7 +168,7 @@ int main(const int argc, const char* argv[]) {
 
     auto startCave = findStart(caves);
     if(startCave) {
-        calcRoutes(routes, startCave, Route());
+        calcRoutes(routes, startCave);
     }
 
     std::cout << routes.size() << std::endl;
