@@ -83,7 +83,6 @@ std::shared_ptr<Cave> findStart(std::vector<std::shared_ptr<Cave>> & caves) {
 }
 
 bool canVisit(const std::shared_ptr<Cave>& cave, const std::vector<std::string>& route) {
-    // endlosloop Abfrage
     if(!cave->isSmallCave()) return true;
 
     for(const auto& caveName : route) {
