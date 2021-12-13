@@ -38,13 +38,13 @@ private:
 
     void foldX(const size_t coordinate) {
         for(Point& point : this->coordinates) {
-            point.x = point.x > coordinate ? point.x - (2 * (point.x - coordinate)) : point.x;
+            point.x = point.x > coordinate ? point.x - 2 * (point.x - coordinate) : point.x;
         }
     };
     
     void foldY(const size_t coordinate) {
         for(Point& point : this->coordinates) {
-            point.y = point.y > coordinate ? point.y - (2 * (point.y - coordinate)) : point.y;
+            point.y = point.y > coordinate ? point.y - 2 * (point.y - coordinate) : point.y;
         }
     };
 
