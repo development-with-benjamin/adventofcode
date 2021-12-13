@@ -74,6 +74,7 @@ public:
 
     void setInstructions(const std::vector<Instruction>& instructions) { this->instructions = instructions; };
     void setCoordinates(const std::vector<Point>& coordinates) { this->coordinates = coordinates; };
+    
     std::vector<Point> getCoordinates() const { return coordinates; };
 
     void fold(size_t instructionNumber) {
@@ -113,10 +114,10 @@ public:
         }
         return max;
     }
-    friend std::ostream& operator<<(std::ostream& os, Matrix m);
+    friend std::ostream& operator<<(std::ostream& os, const Matrix& m);
 };
 
-std::ostream& operator<<(std::ostream& os, Matrix m)  {
+std::ostream& operator<<(std::ostream& os, const Matrix& m)  {
     size_t maxX = m.maxX();
     size_t maxY = m.maxY();
 
@@ -172,7 +173,7 @@ Matrix getInput(const char* filename) {
     return input;
 }
 
-int main(int argc, char** argv)
+int main(const int argc, const char** argv)
 {
     if(argc != 2) {
         return -1;
