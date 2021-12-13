@@ -84,7 +84,55 @@ public:
             fold(instruction);
         }
     };
+
+    bool hasPoint(const size_t x, const size_t y) const {
+        for(Point point : this->coordinates) {
+            if(point.x == x && point.y == y) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    size_t maxX() const {
+        size_t max = 0; 
+        for(Point point : this->coordinates) {
+            if(point.x > max) {
+                max = point.x;
+            }
+        }
+        return max;
+    }
+    
+    size_t maxY() const {
+        size_t max = 0; 
+        for(Point point : this->coordinates) {
+            if(point.y > max) {
+                max = point.x;
+            }
+        }
+        return max;
+    }
+    friend std::ostream& operator<<(std::ostream& os, Matrix m);
 };
+
+std::ostream& operator<<(std::ostream& os, Matrix m)  {
+    size_t maxX = m.maxX();
+    size_t maxY = m.maxY();
+
+    for(size_t y = 0; y <= maxY; ++y) {
+        for(size_t x = 0; x <= maxX; ++x) {
+            if(m.hasPoint(x, y)) {
+                os << '#';
+            }
+            else {
+                os << '.';
+            }
+        }
+        os << std::endl;
+    }
+    return os;
+}
 
 Matrix getInput(const char* filename) {
     std::fstream ifs(filename);
