@@ -72,9 +72,10 @@ public:
         char insert;
 
         for(size_t i = 0; i < subpolymer.size() - 1; ++i) {
-            getInsert_mutex.lock();
+            // I am such a moron. Locking a whole function where data is not altered.
+            // getInsert_mutex.lock();
             insert = self.getInsert(subpolymer.at(i), subpolymer.at(i + 1));
-            getInsert_mutex.unlock();
+            // getInsert_mutex.unlock();
             if(insert != 0) {
                 tempSubPolymer.insert(i + n_inserts++, std::string(1, insert));
             }
@@ -99,7 +100,7 @@ private:
     std::string polymer;
 
     char getInsert(const char first, const char second) const {
-        for(PairInsert pair : inserts) {
+        for(const PairInsert& pair : inserts) {
             if(pair.first == first && pair.second == second) {
                 return pair.insert;
             }
