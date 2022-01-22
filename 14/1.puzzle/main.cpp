@@ -89,7 +89,7 @@ int main(const int argc, const char** argv)
     }
 
     Polymer polymer = getInput(argv[1]);
-    const size_t STEPS = 10;
+    const size_t STEPS = 40;
 
     for(size_t i = 0; i < STEPS; ++i) {
         polymer.runInserts();

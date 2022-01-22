@@ -6,7 +6,7 @@ The submarine manual contains instructions for finding the optimal polymer formu
 
 For example:
 
-NNCB
+```NNCB
 
 CH -> B
 HH -> N
@@ -23,7 +23,7 @@ BN -> B
 BB -> N
 BC -> B
 CC -> N
-CN -> C
+CN -> C```
 
 The first line is the polymer template - this is the starting point of the process.
 
@@ -41,11 +41,11 @@ After the first step of this process, the polymer becomes NCNBCHB.
 
 Here are the results of a few steps using the above rules:
 
-Template:     NNCB
+```Template:     NNCB
 After step 1: NCNBCHB
 After step 2: NBCCNBBBCBHCB
 After step 3: NBBBCNCCNBBNBNBBCHBHHBCHB
-After step 4: NBBNBNBBCCNBCNCCNBBNBBNBBBNBBNBBCBHCBHHNHCBBCBHCB
+After step 4: NBBNBNBBCCNBCNCCNBBNBBNBBBNBBNBBCBHCBHHNHCBBCBHCB```
 
 This polymer grows quickly. After step 5, it has length 97; After step 10, it has length 3073. After step 10, B occurs 1749 times, C occurs 298 times, H occurs 161 times, and N occurs 865 times; taking the quantity of the most common element (B, 1749) and subtracting the quantity of the least common element (H, 161) produces 1749 - 161 = 1588.
 
